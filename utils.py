@@ -87,9 +87,9 @@ def load_dataset_files(
 
 def load_drifter_file(drifter_file):
     """
-    Load a drifter CSV file (NOAA GDP format, 6-header-line).
-    Columns: time, latitude, longitude, ve, vn, err_ve, err_vn,
-             sst, err_sst, flg_sst, speed, direction.
+    Load a drifter CSV file from GDP-like formats.
+    Detects the header row dynamically as the first line starting with 'time'
+    and supports comma or whitespace separated files.
 
     Inputs
     ------
@@ -99,26 +99,64 @@ def load_drifter_file(drifter_file):
     -------
     pandas.DataFrame
     """
-    df = pd.read_csv(
-        drifter_file,
-        skiprows=6,
-        sep=",",
-        names=[
-            "time",
-            "latitude",
-            "longitude",
-            "ve",
-            "vn",
-            "err_ve",
-            "err_vn",
-            "sst",
-            "err_sst",
-            "flg_sst",
-            "speed",
-            "direction",
-        ],
-        header=0,
-    )
+    header_row = None
+    header_line = None
+    with open(drifter_file, "r", encoding="utf-8", errors="ignore") as f:
+        for i, line in enumerate(f):
+            if line.strip().lower().startswith("time"):
+                header_row = i
+                header_line = line
+                break
+
+    if header_row is None:
+        raise ValueError(
+            f"Header row starting with 'time' not found in {Path(drifter_file).name}"
+        )
+
+    is_comma_separated = "," in header_line
+    if is_comma_separated:
+        df = pd.read_csv(drifter_file, skiprows=header_row, sep=",", header=0)
+        if len(df.columns) == 1:
+            df = pd.read_csv(
+                drifter_file,
+                skiprows=header_row,
+                sep=r"\s+",
+                engine="python",
+                header=0,
+            )
+    else:
+        df = pd.read_csv(
+            drifter_file,
+            skiprows=header_row,
+            sep=r"\s+",
+            engine="python",
+            header=0,
+        )
+
+    normalized = {c: c.strip().lower() for c in df.columns}
+    df = df.rename(columns=normalized)
+
+    column_aliases = {
+        "time": ["time"],
+        "latitude": ["latitude", "lat"],
+        "longitude": ["longitude", "lon", "lon360"],
+    }
+
+    rename_map = {}
+    for target, aliases in column_aliases.items():
+        for alias in aliases:
+            if alias in df.columns:
+                rename_map[alias] = target
+                break
+    df = df.rename(columns=rename_map)
+
+    required = ["time", "latitude", "longitude"]
+    missing = [col for col in required if col not in df.columns]
+    if missing:
+        raise ValueError(
+            f"Missing required drifter columns {missing} in {Path(drifter_file).name}"
+        )
+
     return df
 
 

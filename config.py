@@ -75,7 +75,7 @@ DATASETS = {
 
 
 # Paths
-DRIFTERS_PATH = "/home/rosquete/Documents/FRESH-CARE/data/fusion_evaluation/data_in_situ/global_drifters_program/selected_drifters/final_selection/"
+DRIFTERS_PATH = "/home/rosquete/Documents/FRESH-CARE/data/fusion_evaluation/classic_evaluation/in_situ_data/selected_drifters/"
 OUTPUT_PATH = "../results/"
 
 
