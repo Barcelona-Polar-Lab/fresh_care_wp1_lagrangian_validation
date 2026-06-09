@@ -48,5 +48,6 @@ pip install -r requirements.txt
 ## Authors
 
 - arosquete - 2026/02/13
+- jcrespinesteve - 2026/06/9 (jupyter notebooks for plots)
 
 
