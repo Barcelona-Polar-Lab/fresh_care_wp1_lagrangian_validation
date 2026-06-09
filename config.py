@@ -22,54 +22,55 @@ EVAL_PARAMS = {
 }
 
 # Dataset paths and configurations
+# Dataset paths and configurations
 DATASETS = {
-    "ADT-SST": {
-        "path": "/home/rosquete/Documents/FRESH-CARE/data/fusion_results/currents/ADT-SST",
-        "u_name": "ug",
-        "v_name": "vg",
-        "time_name": "time",
-        "lat_name": "lat",
-        "lon_name": "lon",
-    },
-    "ADT-SSS": {
-        "path": "/home/rosquete/Documents/FRESH-CARE/data/fusion_results/currents/ADT-SSS",
-        "u_name": "ug",
-        "v_name": "vg",
-        "time_name": "time",
-        "lat_name": "lat",
-        "lon_name": "lon",
-    },
-    "ADT-0.05": {
-        "path": "/home/rosquete/Documents/FRESH-CARE/data/fusion_results/currents/ADT-0.05",
-        "u_name": "ugos",
-        "v_name": "vgos",
-        "time_name": "time",
-        "lat_name": "latitude",
-        "lon_name": "longitude",
-    },
-    "ADT-0.25": {
-        "path": "/home/rosquete/Documents/FRESH-CARE/data/fusion_results/currents/ADT-0.25",
+    "AVISO": {
+        "path": "/data/FRESH-CARE/Data_satellite/AVISO/regridded/0.25",
         "u_name": "ugos",
         "v_name": "vgos",
         "time_name": "time",
         "lat_name": "lat",
         "lon_name": "lon",
     },
-    "OSCAR-total": {
-        "path": "/home/rosquete/Documents/FRESH-CARE/data/other_datasets/OSCAR/data",
+    "OSCAR": {
+        "path": "/data/FRESH-CARE/ext_currents_datasets/OSCAR/data",
         "u_name": "u",
         "v_name": "v",
         "time_name": "time",
         "lat_name": "lat",
         "lon_name": "lon",
     },
-    "OSCAR-geos": {
-        "path": "/home/rosquete/Documents/FRESH-CARE/data/other_datasets/OSCAR/data",
-        "u_name": "ug",
-        "v_name": "vg",
+    "GLORYS": {
+        "path": "/data/FRESH-CARE/GLORYS/glorys_daily_2011_2021",
+        "u_name": "uo",
+        "v_name": "vo",
         "time_name": "time",
-        "lat_name": "lat",
-        "lon_name": "lon",
+        "lat_name": "latitude",
+        "lon_name": "longitude",
+    },
+    "GLOBCURRENT": {
+        "path": "/data/FRESH-CARE/GLOBCURRENT/daily",
+        "u_name": "uo",
+        "v_name": "vo",
+        "time_name": "time",
+        "lat_name": "latitude",
+        "lon_name": "longitude",
+    },
+    "TOPAZ": {
+        "path": "/data/FRESH-CARE/TOPAZ4b/daily",
+        "u_name": "vxo",
+        "v_name": "vyo",
+        "time_name": "time",
+        "lat_name": "latitude",
+        "lon_name": "longitude",
+    },
+    "NEUROST": {
+        "path": "/data/FRESH-CARE/NEUROST_processed/",
+        "u_name": "u",
+        "v_name": "v",
+        "time_name": "time",
+        "lat_name": "latitude",
+        "lon_name": "longitude",
     },
 }
 
