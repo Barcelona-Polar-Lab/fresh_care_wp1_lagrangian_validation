@@ -70,3 +70,15 @@ pip install -r requirements.txt
 * **Pipeline Adaptation & Integration:** A. Rosquete-Estévez (2026/02/13).
 * **Diagnostic Plotting & Notebooks:** J. Crespin (2026/06/09).
 * **Supervision & Review:** Co-authored and reviewed by Luis Yubero, Ana M. Mancho, and Marta Umbert.
+
+## 🇪🇺 Funding & Acknowledgements
+This software framework is part of the **FRESH-CARE** project, which has received funding from the **European Research Council (ERC)** under the European Union’s Horizon Europe research and innovation programme (Grant Agreement No. 10116451). 
+
+This research framework was developed through a collaborative scientific fellowship between the **Institut de Ciències del Mar (ICM-CSIC)** and the **Instituto de Ciencias Matemáticas (ICMAT)**. 
+
+We acknowledge funding from:
+* The Spanish government through the 'Severo Ochoa Centre of Excellence' accreditation (Grant CEX2024-001494-S funded by AEI 10.13039/501100011033).
+* Grant PID2021-123348OB-I00 funded by MCIN/AEI/10.13039/501100011033/ and by FEDER "A way to make Europe" (A. M. Mancho).
+* The CSIC JAE Intro ICU 2025 call, funded by the Spanish Ministry of Science, Innovation and Universities (Grant Ref: PolarCSIC-01; A. Rosquete-Estévez).
+
+This work is a contribution to **CSIC Conexión Polar** and **CSIC Thematic Interdisciplinary Platform PTI Teledetect**.
